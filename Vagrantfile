@@ -16,4 +16,10 @@ Vagrant.configure('2') do |config|
     provider.customize ['modifyvm', :id, '--name',   CONF['name']]
     provider.customize ['modifyvm', :id, '--memory', CONF['memory']]
   end
+
+  config.vm.provision :ansible do |ansible|
+    ansible.playbook = 'setup.yml'
+    ansible.inventory_path = 'hosts'
+    ansible.limit = 'all'
+  end
 end
