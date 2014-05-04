@@ -1,7 +1,7 @@
-name: boxee_name
+name: bunda
 memory: 512
 private_ip: 192.168.50.4
 forward_ports:
-  - 3000
-  - 4000
-  - 80
+  - {host: 3000, guest: 3000}
+  - {host: 4000, guest: 4000}
+  - {host: 8000, guest:   80}
