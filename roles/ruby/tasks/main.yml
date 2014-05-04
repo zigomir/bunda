@@ -1,0 +1,6 @@
+---
+- name: Install PPA for latest Ruby version
+  apt_repository: repo=ppa:brightbox/ruby-ng state=present
+
+- name: Install Ruby package
+  apt: pkg=ruby2.1 state=latest update_cache=yes

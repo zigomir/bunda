@@ -2,12 +2,13 @@
 - hosts: vagrant
   user: vagrant
   sudo: yes
-  # gather_facts: False # uncomment for faster provisioning
+  # uncomment for faster provisioning
+  # gather_facts: False
 
   roles:
     - common
     - deploy-user
-    # - ruby
+    - ruby
+    - nodejs
     # - nginx-passenger
     # - postgres
-    # - nodejs
