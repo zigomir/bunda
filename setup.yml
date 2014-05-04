@@ -1,0 +1,13 @@
+---
+- hosts: vagrant
+  user: vagrant
+  sudo: yes
+  # gather_facts: False # uncomment for faster provisioning
+
+  roles:
+    - common
+    - deploy-user
+    # - ruby
+    # - nginx-passenger
+    # - postgres
+    # - nodejs

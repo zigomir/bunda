@@ -1,3 +1,4 @@
 .vagrant
 server_config.yml
 hosts
+pubkey
