@@ -1,0 +1,7 @@
+name: boxee_name
+memory: 512
+private_ip: 192.168.50.4
+forward_ports:
+  - 3000
+  - 4000
+  - 80
