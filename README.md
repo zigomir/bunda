@@ -4,7 +4,7 @@ Build me servers; Run them on [clouds](https://www.youtube.com/watch?v=3acIH2PhM
 
 ## Ansible
 
-ALl knowledge taken from [this nice repository](https://github.com/jlund/mazer-rackham).
+ALl knowledge taken from [mazer-rackham](https://github.com/jlund/mazer-rackham) and [ansible](https://github.com/eduardodeoh/ansible).
 
 ## Infrastructure notes
 
