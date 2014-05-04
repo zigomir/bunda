@@ -1,9 +1,9 @@
 server {
     listen 80;
-    server_name api.tripsy.me;
+    server_name api.{{domain}};
     root /home/deploy/api/public;
 
     passenger_enabled on;
     passenger_user deploy;
-    passenger_ruby /usr/bin/ruby2.1;
+    passenger_ruby /usr/bin/ruby;
 }

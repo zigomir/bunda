@@ -13,4 +13,4 @@
     - ruby
     - nodejs
     - postgres
-    # - nginx-passenger
+#    - nginx-passenger
