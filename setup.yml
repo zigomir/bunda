@@ -3,9 +3,9 @@
   user: vagrant
   sudo: yes
   # uncomment for faster provisioning
-  # gather_facts: False
+#  gather_facts: False
   vars:
-    - distro_codename: trusty
+    - distro_codename: precise
 
   roles:
     - common
@@ -13,4 +13,4 @@
     - ruby
     - nodejs
     - postgres
-#    - nginx-passenger
+    - nginx-passenger

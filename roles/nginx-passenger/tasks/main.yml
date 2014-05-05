@@ -14,20 +14,26 @@
             owner=root group=root mode=0644
 
 - name: Install Passenger package
-  apt: pkg=nginx-full state=latest update_cache=yes
+  apt: pkg={{item}} state=latest update_cache=yes force=yes
+  with_items:
+    - nginx-full
+    - passenger
 
 # App settings
+- name: Install Client service Nginx config
+  template: src=nginx.conf dest=/etc/nginx/nginx.conf
+
 - name: Install API service Nginx config
   template: src=api.conf.j2 dest=/etc/nginx/sites-enabled/api.conf
   notify:
     - Restart Nginx
 
-- name: Install Auth service Nginx config
-  template: src=auth.conf.j2 dest=/etc/nginx/sites-enabled/auth.conf
-  notify:
-    - Restart Nginx
-
-- name: Install Client service Nginx config
-  template: src=client.conf.j2 dest=/etc/nginx/sites-enabled/client.conf
-  notify:
-    - Restart Nginx
+#- name: Install Auth service Nginx config
+#  template: src=auth.conf.j2 dest=/etc/nginx/sites-enabled/auth.conf
+#  notify:
+#    - Restart Nginx
+#
+#- name: Install Client service Nginx config
+#  template: src=client.conf.j2 dest=/etc/nginx/sites-enabled/client.conf
+#  notify:
+#    - Restart Nginx

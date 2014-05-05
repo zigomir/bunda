@@ -3,7 +3,7 @@ require 'yaml'
 CONF = YAML.load_file('server_config.yml')
 
 Vagrant.configure('2') do |config|
-  config.vm.box = 'ubuntu/trusty64'
+  config.vm.box = 'ubuntu/precise64'
 
   CONF['forward_ports'].each do |port|
     config.vm.network :forwarded_port, guest: port['guest'], host: port['host']
