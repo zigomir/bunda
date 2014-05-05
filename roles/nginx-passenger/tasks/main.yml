@@ -1,1 +1,17 @@
-# TODO: script it from here: http://blog.phusion.nl/2013/09/11/debian-and-ubuntu-packages-for-phusion-passenger/
+# Source: http://blog.phusion.nl/2013/09/11/debian-and-ubuntu-packages-for-phusion-passenger/
+
+- name: Adding gpg key for apt repository
+  command: gpg --keyserver keyserver.ubuntu.com --recv-keys 561F9B9CAC40B2F7
+
+- name: Adding apt-key
+  command: gpg --armor --export 561F9B9CAC40B2F7 | sudo apt-key add -
+
+- name: Install HTTPS support for APT
+  apt: pkg=apt-transport-https state=latest
+
+- name: Install Passenger repository
+  template: src=passenger.list.j2 dest=/etc/apt/sources.list.d/passenger.list
+            owner=root group=root mode=0644
+
+- name: Install Passenger package
+  apt: pkg=nginx-full state=latest update_cache=yes
