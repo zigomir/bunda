@@ -6,6 +6,17 @@ Build me servers; Run them on [clouds](https://www.youtube.com/watch?v=3acIH2PhM
 
 ALl knowledge taken from [mazer-rackham](https://github.com/jlund/mazer-rackham) and [ansible](https://github.com/eduardodeoh/ansible).
 
+## DigitalOcean
+
+```sh
+vagrant plugin install vagrant-digitalocean
+vagrant up --provider=digital_ocean
+
+
+ansible production -i hosts -m ping -u root
+ansible-playbook -i hosts setup_digitalocean.yml
+```
+
 ## Infrastructure notes
 
 ### GitHub repos
@@ -13,8 +24,3 @@ ALl knowledge taken from [mazer-rackham](https://github.com/jlund/mazer-rackham)
 - [client aka tripster](https://github.com/zigomir/tripster)
 - [server aka flyout](https://github.com/zigomir/flyout)
 - [authorization service aka proxio](https://github.com/zigomir/proxio) - was previously proxying requests from client to server
-
-## TODO
-
-- ansible playbooks for installing the stuff: ruby 2.1.1, passenger phusion, nginx, postgres 9.3, node.js
-- [packer digital ocean](http://www.packer.io/docs/builders/digitalocean.html)
