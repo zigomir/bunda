@@ -25,15 +25,9 @@
 
 - name: Install API service Nginx config
   template: src=api.conf.j2 dest=/etc/nginx/sites-enabled/api.conf
-  notify:
-    - Restart Nginx
 
-#- name: Install Auth service Nginx config
-#  template: src=auth.conf.j2 dest=/etc/nginx/sites-enabled/auth.conf
-#  notify:
-#    - Restart Nginx
-#
-#- name: Install Client service Nginx config
-#  template: src=client.conf.j2 dest=/etc/nginx/sites-enabled/client.conf
-#  notify:
-#    - Restart Nginx
+- name: Install Auth service Nginx config
+  template: src=auth.conf.j2 dest=/etc/nginx/sites-enabled/auth.conf
+
+- name: Install Client service Nginx config
+  template: src=client.conf.j2 dest=/etc/nginx/sites-enabled/client.conf
