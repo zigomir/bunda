@@ -6,7 +6,11 @@ server {
     passenger_enabled on;
     passenger_user deploy;
 
+    passenger_set_cgi_param HOST "http://localhost:4000";
+    passenger_set_cgi_param REDIRECT_URL "http://{{domain}}";
+
     passenger_set_cgi_param API_HOST "http://localhost:3000";
+    passenger_set_cgi_param API_PATH "/api/v1";
     passenger_set_cgi_param API_SECRET "ItIsSecretLol";
 
     passenger_set_cgi_param FACEBOOK_APP_ID "facebook_app_id";
@@ -14,8 +18,4 @@ server {
 
     passenger_set_cgi_param GOOGLE_APP_ID "google_app_id";
     passenger_set_cgi_param GOOGLE_APP_SECRET "google_app_secret";
-
-    passenger_set_cgi_param HOST "http://localhost:4000";
-    passenger_set_cgi_param API_PATH="/api/v1";
-    passenger_set_cgi_param REDIRECT_URL="http://{{domain}}";
 }
