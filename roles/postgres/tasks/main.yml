@@ -21,10 +21,6 @@
   notify: reload postgresql
   tags: setting_postgresql_pg_hba
 
-- name: Setting Postgresql on boot
-  service: name=postgresql enabled=yes
-  tags: setting_postgresql_on_boot
-
 - name: Create Postgresql user for application
   postgresql_user: name={{db_user}} password={{db_user_pass}} role_attr_flags={{db_user_roles}}
   tags: create_pg_user
