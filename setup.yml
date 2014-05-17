@@ -5,7 +5,7 @@
   # uncomment for faster provisioning
 #  gather_facts: False
   vars:
-    - distro_codename: precise
+    - distro_codename: trusty
 
   roles:
     - common

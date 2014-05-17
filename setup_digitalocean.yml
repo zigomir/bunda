@@ -3,7 +3,7 @@
   user: root
   sudo: yes
   vars:
-    - distro_codename: precise
+    - distro_codename: trusty
 
   roles:
     - common
