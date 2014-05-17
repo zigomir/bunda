@@ -16,3 +16,11 @@ vagrant up --provider=digital_ocean
 ansible production -i hosts -m ping -u root
 ansible-playbook -i hosts setup_digitalocean.yml
 ```
+
+## Wrong Ruby version?
+
+Be sure to re-install `bundler` and try to run `gem` cause executables might be referenced to `ruby1.9`.
+
+```sh
+update-alternatives --set ruby
+```

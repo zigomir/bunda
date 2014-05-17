@@ -6,10 +6,10 @@ server {
     passenger_enabled on;
     passenger_user deploy;
 
-    passenger_set_cgi_param HOST "http://localhost:4000";
-    passenger_set_cgi_param REDIRECT_URL "http://{{domain}}";
+    passenger_set_cgi_param HOST "http://auth.{{domain}}";
+    passenger_set_cgi_param REDIRECT_URL "http://dev.{{domain}}";
 
-    passenger_set_cgi_param API_HOST "http://localhost:3000";
+    passenger_set_cgi_param API_HOST "http://api.{{domain}}";
     passenger_set_cgi_param API_PATH "/api/v1";
     passenger_set_cgi_param API_SECRET "ItIsSecretLol";
 
