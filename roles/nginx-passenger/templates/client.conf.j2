@@ -1,7 +1,22 @@
 server {
     listen 80;
-    server_name dev.{{domain}};
+
+    # currently only auth.tripsy.me works since it's the only subdomains that
+    # are redirected to our server's IP and auth is the only subdomain that
+    # has SSL enabled. We have it for tripsy.me and auth.tripsy.me
+
+    server_name {{domain}};
+    return 301 https://$host$request_uri;
+}
+
+server {
+    listen 443 ssl;
+
     root /home/deploy/client;
+    server_name {{domain}};
+
+    ssl_certificate /home/deploy/keys/unified.crt;
+    ssl_certificate_key /home/deploy/keys/my-private-decrypted.key;
 
     location /api {
         proxy_set_header X-Real-IP $remote_addr;

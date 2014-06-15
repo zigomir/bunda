@@ -24,3 +24,11 @@ Be sure to re-install `bundler` and try to run `gem` cause executables might be 
 ```sh
 update-alternatives --set ruby
 ```
+
+## TODO
+
+Finish SSL config when we enable IP <=> tripsy.me on domain registrar.
+
+## SSL all the way
+
+[Very good source on how to get free certificates](https://konklone.com/post/switch-to-https-now-for-free)
