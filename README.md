@@ -27,7 +27,7 @@ update-alternatives --set ruby
 
 ## TODO
 
-Finish SSL config when we enable IP <=> tripsy.me on domain registrar.
+Finish SSL config when we enable IP <=> jetlaggin.com on domain registrar.
 
 ## SSL all the way
 

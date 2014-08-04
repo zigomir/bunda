@@ -1,9 +1,9 @@
 server {
     listen 80;
 
-    # currently only auth.tripsy.me works since it's the only subdomains that
+    # currently only auth.jetlaggin.com works since it's the only subdomains that
     # are redirected to our server's IP and auth is the only subdomain that
-    # has SSL enabled. We have it for tripsy.me and auth.tripsy.me
+    # has SSL enabled. We have it for jetlaggin.com and auth.jetlaggin.com
 
     server_name {{domain}};
     return 301 https://$host$request_uri;
@@ -22,7 +22,7 @@ server {
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-NginX-Proxy true;
-        proxy_pass http://api.tripsy.me/api;
+        proxy_pass http://api.jetlaggin.com/api;
     }
 
     location / {
