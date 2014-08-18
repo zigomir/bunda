@@ -1,8 +1,20 @@
-server {
-    listen 80;
-    server_name api.{{domain}};
-    root /home/deploy/api/current/public;
+upstream unicorn {
+  server unix:/tmp/unicorn.api.sock fail_timeout=0;
+}
 
-    passenger_enabled on;
-    passenger_user deploy;
+server {
+  listen 80;
+  server_name api.{{domain}};
+  root /home/deploy/api/current/public;
+
+  try_files $uri @unicorn;
+
+  location @unicorn {
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header Host $http_host;
+    proxy_redirect off;
+    proxy_pass http://unicorn;
+  }
+
+  keepalive_timeout 10;
 }

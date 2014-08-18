@@ -1,0 +1,10 @@
+# /etc/init/flyout.conf
+start on virtual-filesystems
+stop on runlevel [06]
+
+setuid deploy
+setgid deploy
+
+pre-start exec /home/deploy/api/current/bin/unicorn -D -c /home/deploy/api/current/config/unicorn.rb --env production
+
+post-stop exec kill `cat /home/deploy/api/shared/tmp/pids/unicorn.pid`
