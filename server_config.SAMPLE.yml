@@ -1,0 +1,14 @@
+name: bunda
+memory: 512
+private_ip: 192.168.50.4
+forward_ports:
+  - {host: 3000, guest: 3000}
+  - {host: 4000, guest: 4000}
+  - {host: 8000, guest:   80}
+
+digital_ocean:
+  client_id: <your digital ocean client id>
+  api_key:   <your digital ocean api key>
+  image:     Ubuntu 12.04.4 x64 # Vagrant-Digital ocean for now supports this one
+  region:    Amsterdam 1
+  size:      512MB # 1GB

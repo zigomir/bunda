@@ -1,0 +1,5 @@
+postgresql_version: 9.3
+db_user: deploy
+db_user_pass: deploy
+db_user_roles: "SUPERUSER"
+db_name: flyout_production

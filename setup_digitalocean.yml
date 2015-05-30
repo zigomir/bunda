@@ -1,0 +1,17 @@
+---
+- hosts: production
+  user: root
+  sudo: yes
+  vars:
+    - distro_codename: trusty
+    - domain: yourdomain.com
+    - root_dir: /home/deploy
+
+  roles:
+    - common
+    - deploy-user
+    - ruby
+    - nodejs
+    - postgres
+    - nginx-passenger
+    - unicorn

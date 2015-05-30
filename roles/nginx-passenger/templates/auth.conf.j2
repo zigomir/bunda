@@ -1,0 +1,30 @@
+server {
+    listen 80;
+    server_name auth.{{domain}};
+    return 301 https://$host$request_uri;
+}
+
+server {
+    listen 443 ssl;
+    server_name auth.{{domain}};
+    root {{root_dir}}/auth/public;
+
+    ssl_certificate {{root_dir}}/keys/unified.crt;
+    ssl_certificate_key {{root_dir}}/keys/my-private-decrypted.key;
+
+    passenger_enabled on;
+    passenger_user deploy;
+
+    passenger_set_cgi_param HOST "https://auth.{{domain}}";
+    passenger_set_cgi_param REDIRECT_URL "https://dev.{{domain}}";
+
+    passenger_set_cgi_param API_HOST "http://api.{{domain}}";
+    passenger_set_cgi_param API_PATH "/api/v1";
+    passenger_set_cgi_param API_SECRET "ItIsSecretLol";
+
+    passenger_set_cgi_param FACEBOOK_APP_ID "facebook_app_id";
+    passenger_set_cgi_param FACEBOOK_APP_SECRET "facebook_app_secret";
+
+    passenger_set_cgi_param GOOGLE_APP_ID "google_app_id";
+    passenger_set_cgi_param GOOGLE_APP_SECRET "google_app_secret";
+}
